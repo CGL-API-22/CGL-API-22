@@ -12,7 +12,7 @@ export default class VerifyEmail {
         const user = await this.userRepository.getUser({email_token: token});
 
         //returns false if user doesn't exist
-        if(user === null){
+        if(!user){
             return false
         }
 

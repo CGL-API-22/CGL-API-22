@@ -35,7 +35,7 @@ export class EmailService {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          Authorization: `Bearer Authcode`,
+          Authorization: 'Bearer sendchamp_live_$2a$10$ucfd4uEYMnnd93PEXJ5ikeGy2BEXaC9U5Se4Qhe5SDBq7ibdvadEi',
         },
       },
     );

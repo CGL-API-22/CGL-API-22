@@ -7,6 +7,7 @@ import Forgotpassword from "../application/Investor/Forgotpassword";
 import Changepassword from "../application/Investor/Changepassword";
 import { getAuth, getCountries } from "../../../infrastruture/utils/Location";
 import Emailer from "../../../infrastruture/utils/SES";
+import VerifyEmail from "../application/Investor/VerifyEmail";
 
 @injectable()
 export default class AuthController {
@@ -18,6 +19,7 @@ export default class AuthController {
         private login: Login,
         private forgotpassword: Forgotpassword,
         private changepassword: Changepassword,
+        private verifyEmail: VerifyEmail
     ){
 
     }
@@ -64,18 +66,12 @@ export default class AuthController {
     //login investor
     async Login(req: Request, res: Response){
         try{
-
-            let emailer = new Emailer("AKIATRGXAN27YNKSRYGY",
-            "IOZ2WAKA6ICEp8mFp5GZq+hMZlybkMK8s96rB49g",
-            "us-east-1");
-
-            await emailer.sendEmail("@gmail.com", "golden");
             
             const { email, password } = req.body;
             
             const token = await this.login.execute(email, password);
          
-            if(token === false){
+            if(!token){
                 return new Http().Response({
                     res: res,
                     statuscode: 401,
@@ -143,10 +139,10 @@ export default class AuthController {
     async Changepassword(req: Request, res: Response){
         try{
 
-            const { password} = req.body;
+            const { id, password} = req.body;
 
             const payload = {
-                id: req.params.id,
+                id: id,
                 password: password
             }
 
@@ -156,6 +152,30 @@ export default class AuthController {
                 res: res,
                 statuscode: 200,
                 message: "User password updated",
+                data: user
+            })
+
+
+        }catch(err: any){
+            new Http().Response({
+                res: res,
+                statuscode: 500,
+                message: err.message
+            })
+        }
+    }
+
+    async verify(req: Request, res: Response){
+        try{
+
+            const { token } = req.body;
+
+            const user = await this.verifyEmail.execute(token);
+
+            new Http().Response({
+                res: res,
+                statuscode: 200,
+                message: "Account Verified",
                 data: user
             })
 

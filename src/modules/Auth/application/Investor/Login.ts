@@ -20,6 +20,11 @@ export default class Login{
             return false
         }
 
+        //check if user is verified
+        if (user.verified) {
+            return false
+        }
+
         //compare encrypted password
         const checkpassword = await compareHash(password, user.password)
     
