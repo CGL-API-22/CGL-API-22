@@ -11,11 +11,9 @@ export default class Changepassword {
     }
 
     async execute(payload: any){
-
         const encryptpassword = await hash(payload.password);
 
-        const Changepassword = await this.userRepository.updateUser({_id: payload.id}, {password: encryptpassword});
-
+        const Changepassword = await this.userRepository.updateUser({email_token: payload.token}, {password: encryptpassword});
         return Changepassword
     }
 }

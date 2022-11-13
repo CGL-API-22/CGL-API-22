@@ -15,19 +15,19 @@ export default class Login{
 
         //check if user exists
         const user = await this.userRepository.getUser({email: email});
-
+        
         if(user === null){
             return false
         }
 
         //check if user is verified
-        if (user.verified) {
+        if (!user.verified) {
             return false
         }
 
         //compare encrypted password
         const checkpassword = await compareHash(password, user.password)
-    
+        
         if(!checkpassword){
             return false
         }

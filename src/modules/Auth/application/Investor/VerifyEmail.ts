@@ -7,18 +7,18 @@ export default class VerifyEmail {
         private userRepository: UserRepository,
     ){}
 
-    async execute(token: string){
+    async execute(token: string) {
         //check if user exist using email
         const user = await this.userRepository.getUser({email_token: token});
-
         //returns false if user doesn't exist
-        if(!user){
+        if (!user) {
             return false
+        } else {
+
+            // verify user 
+            await this.userRepository.updateUser({ email_token: token }, { verified: true })
+
+            return user
         }
-
-        // verify user 
-        await this.userRepository.updateUser({ email_token: token}, {verified: true})
-
-        return user
     }   
 }

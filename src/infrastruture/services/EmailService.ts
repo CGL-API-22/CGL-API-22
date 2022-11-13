@@ -24,10 +24,9 @@ export class EmailService {
       'https://api.sendchamp.com/api/v1/email/send',
       {
         to: [{ email: args.email, name: args.name }],
-        from: { email: 'info@coronamgroup', name: 'Coronamgroup' },
         message_body: {
           type: 'text/html',
-          value: args.message,
+          value: `<h1>${args.message}</h1>`,
         },
         subject: args.subject,
       },

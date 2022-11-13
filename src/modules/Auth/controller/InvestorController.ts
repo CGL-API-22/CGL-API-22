@@ -139,10 +139,10 @@ export default class AuthController {
     async Changepassword(req: Request, res: Response){
         try{
 
-            const { id, password} = req.body;
+            const { token, password} = req.body;
 
             const payload = {
-                id: id,
+                token,
                 password: password
             }
 
@@ -171,6 +171,14 @@ export default class AuthController {
             const { token } = req.body;
 
             const user = await this.verifyEmail.execute(token);
+
+            if (user === false) {
+                new Http().Response({
+                    res: res,
+                    statuscode: 400,
+                    message: "Account Not Verified",
+                })
+            }
 
             new Http().Response({
                 res: res,
