@@ -1,0 +1,13 @@
+"use strict";
+exports.__esModule = true;
+var express_1 = require("express");
+var InvestorController_1 = require("./controller/InvestorController");
+var tsyringe_1 = require("tsyringe");
+var authRouter = (0, express_1.Router)();
+var authController = tsyringe_1.container.resolve(InvestorController_1["default"]);
+authRouter.post('/register', function (req, res) { return authController.register(req, res); });
+authRouter.post('/login', function (req, res) { return authController.Login(req, res); });
+authRouter.post('/forgotpassword', function (req, res) { return authController.Forgotpassword(req, res); });
+authRouter.patch('/changepassword', function (req, res) { return authController.Changepassword(req, res); });
+authRouter.post('/verifyaccount', function (req, res) { return authController.verify(req, res); });
+exports["default"] = authRouter;
