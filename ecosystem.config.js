@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    script: 'src/index.js',
+    script: 'src/index.ts',
     instances: "max",
     env: {
       NODE_ENV: 'development'
