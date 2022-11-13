@@ -7,7 +7,7 @@
     "serve": "nodemon dist/index.js",
     "postinstall": "tsc",
     "watch-ts": "tsc -w",
-    "start": "tsc && dist/index.js pm2-runtime start ecosystem.config.js --env production"
+    "start": "tsc && pm2 start dist/index.js"
   },
   "author": "",
   "license": "ISC",
