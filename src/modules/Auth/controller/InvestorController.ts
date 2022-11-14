@@ -1,12 +1,10 @@
 import { injectable } from "tsyringe";
 import { Request, Response } from "express";
-import { Http, PayStack } from "../../../infrastruture/utils";
+import { Http } from "../../../infrastruture/utils";
 import Register from "../application/Investor/Register";
 import Login from "../application/Investor/Login";
 import Forgotpassword from "../application/Investor/Forgotpassword";
 import Changepassword from "../application/Investor/Changepassword";
-import { getAuth, getCountries } from "../../../infrastruture/utils/Location";
-import Emailer from "../../../infrastruture/utils/SES";
 import VerifyEmail from "../application/Investor/VerifyEmail";
 
 @injectable()
