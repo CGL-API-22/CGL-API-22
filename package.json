@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.1.2"
+  },
   "scripts": {
     "serve": "node dist/index.js",
-    "postinstall": "tsc",
+    "postinstall": "tsc && npm i",
     "watch-ts": "tsc -w",
     "start": "pm2 start src/index.ts"
   },
