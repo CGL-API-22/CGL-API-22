@@ -20,10 +20,6 @@ import {
 
 import Http from './Http';
 
-import { generateOTP, verifyOTP } from './otp';
-
-import PayStack from './PayStack';
-
 export {
     connect,
     createData,
@@ -37,7 +33,4 @@ export {
     generateToken,
     verifyToken,
     Http,
-    generateOTP,
-    verifyOTP,
-    PayStack
 }
