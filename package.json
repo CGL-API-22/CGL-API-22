@@ -9,7 +9,7 @@
   },
   "scripts": {
     "serve": "node dist/index.js",
-    "postinstall": "tsc && npm i",
+    "postinstall": "tsc",
     "watch-ts": "tsc -w",
     "start": "pm2 start src/index.ts"
   },
