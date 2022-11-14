@@ -10,8 +10,6 @@ import VerifyEmail from "../application/Investor/VerifyEmail";
 @injectable()
 export default class AuthController {
 
-   
-
     constructor(
         private addUser: Register,
         private login: Login,
@@ -73,7 +71,7 @@ export default class AuthController {
                 return new Http().Response({
                     res: res,
                     statuscode: 401,
-                    message: "User not authorized",
+                    message: "Invalid Email/Password Provided",
                 })
             }
 
@@ -112,14 +110,14 @@ export default class AuthController {
                 return new Http().Response({
                     res: res,
                     statuscode: 404,
-                    message: "User not found",
+                    message: "Email not found",
                 })
             }
 
             new Http().Response({
                 res: res,
                 statuscode: 200,
-                message: "User authorized",
+                message: "Check email for changepassword link",
                 data: user
             })
 
