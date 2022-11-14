@@ -24,7 +24,7 @@ export default class Forgotpassword {
         const sendEmailPayload: ISendEmailRequest = {
             email: user.email,
             name: user.firstname,
-            subject: 'Account Verification',
+            subject: 'Password Recovery',
             message: `${url}/?token=${user.email_token}`
         }
     
