@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteData = exports.updateManyData = exports.updateData = exports.readsingleData = exports.readData = exports.createData = exports.connect = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const connect = (dbname, dbusername, dbpassword) => __awaiter(void 0, void 0, void 0, function* () {
+const connect = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(`mongodb+srv://coronamgroup:(PASS)word123@financeportfolio.nlpytyj.mongodb.net/?retryWrites=true&w=majority`);
         console.log('database connected');

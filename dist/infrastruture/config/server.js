@@ -18,7 +18,7 @@ class Server {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 //connecting to mongodb
-                (0, utils_1.connect)("financeportfolio", "coronamgroup", "(PASS)word123");
+                (0, utils_1.connect)();
                 const port = process.env.PORT || "5000";
                 this.app.listen(port, () => { console.log(`listening to port ${port}`); });
                 setTimeout(() => {
