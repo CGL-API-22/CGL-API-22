@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 
-const connect = async (dbname: string, dbusername: string, dbpassword: string) => {
+const connect = async () => {
 
   try{
 

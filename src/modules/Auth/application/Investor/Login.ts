@@ -1,5 +1,5 @@
 import { injectable } from "tsyringe";
-import { compareHash, generateToken, hash } from "../../../../infrastruture/utils";
+import { compareHash, generateToken } from "../../../../infrastruture/utils";
 import UserRepository from "../../repositories/UsersRepository";
 
 @injectable()

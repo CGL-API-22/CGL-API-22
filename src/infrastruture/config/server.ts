@@ -13,7 +13,7 @@ export default class Server {
         try{
   
             //connecting to mongodb
-            connect("financeportfolio", "coronamgroup", "(PASS)word123")
+            connect()
         
             const port: string = process.env.PORT || "5000"
         
